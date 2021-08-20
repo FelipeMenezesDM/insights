@@ -1,5 +1,5 @@
 <template>
-  <div class="add-indight-page">
+  <div class="add-insight-page">
     <Header />
     <form ref="form">
       <v-container class="pa-4">
@@ -78,7 +78,7 @@ export default {
       isLoading: false,
       insight: {
         tags: null,
-        textO: null
+        texto: null
       },
       search: null
     }
@@ -103,6 +103,14 @@ export default {
           : entry.name;
 
         return Object.assign({}, entry, {name});
+      });
+    }
+  },
+  mounted() {
+    if(this.$route.params.id) {
+      Insight.getInfo(this.$route.params).then(result => {
+        this.insight.tags = result.data.insight.tags;
+        this.insight.texto = result.data.insight.texto;
       });
     }
   },
@@ -131,10 +139,15 @@ export default {
       this.insight.tags = [...this.insight.tags];
     },
     save() {
-      Insight.post(this.insight).then((result) => {
-        console.log(result);
-        this.$router.push('/');
-      });
+      if(this.insight.id) {
+        Insight.put(this.insight).then(() => {
+          this.$router.push('/');
+        });
+      }else{
+        Insight.post(this.insight).then(() => {
+          this.$router.push('/');
+        });
+      }
     },
     submit() {
       this.save();

@@ -37,7 +37,7 @@
       <v-row class="ma-0">
         <v-col cols="12" class="pa-0">
           <v-card align="center" class="v-card-item" v-for="insight of insights" :key="insight.id">
-            <v-card-subtitle class="card-text">{{ insight.texto }}</v-card-subtitle>
+            <v-card-subtitle class="card-text" @click="viewInsight(insight.id)">{{ insight.texto }}</v-card-subtitle>
             <v-container v-if="insight.tags && insight.tags.length > 0" class="px-4 py-3">
               <v-chip
                 label outlined
@@ -89,6 +89,9 @@ export default {
   methods: {
     addInsight: function() {
       this.$router.push('/add-insight');
+    },
+    viewInsight: function(insightId) {
+      this.$router.push({name: 'ViewInsight', params: {id: insightId}});
     }
   },
   mounted() {

@@ -24,5 +24,12 @@ export default {
   post: (insight) => {
     handlerTags(insight);
     return http.post('insight/post', insight);
+  },
+  put: (insight) => {
+    handlerTags(insight);
+    return http.post('insight/put', insight);
+  },
+  getInfo: (params) => {
+    return http.get('insight/get', {params: params});
   }
 };
