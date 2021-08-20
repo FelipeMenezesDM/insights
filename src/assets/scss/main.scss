@@ -3,8 +3,10 @@
 $body-font-family: 'Exo 2';
 $title-font: 'Exo 2';
 $pink: #ED4D77;
+$pinkRgba: rgba(237, 77, 119, 0.24);
 
 .v-application {
+  background-color: #F4F4F4 !important;
   font-family: $body-font-family, sans-serif !important;
   .title, .sub-title {
     font-family: $title-font, sans-serif !important;

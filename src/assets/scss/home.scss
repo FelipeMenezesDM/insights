@@ -20,11 +20,65 @@
 
 .home-header .v-toolbar__image .v-image__image {
 	background-position: center bottom !important;
-  background-size: 105% auto;
+  background-size: 108% auto;
 }
 
 .feed-label h3 {
 	font-size: 20px;
 	line-height: 20px;
 	color: $pink;
+}
+
+.v-card.v-card-item {
+	border-radius: 8px;
+	margin-bottom: 8px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+.v-card .card-text {
+	color: #000000 !important;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 500;
+}
+
+.v-chip.v-tag {
+	border: 2px solid $pinkRgba;
+	color: $pink;
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.load-more-btn {
+	text-transform: initial;
+	font-weight: 500 !important;
+	font-size: 14px !important;
+	color: #666666 !important;
+}
+
+.search-clear-fix {
+	height: 66px;
+}
+
+.search-field-wrapper {
+	position: fixed;
+	bottom: 16px;
+	left: 16px;
+	right: 16px;
+	height: 56px;
+}
+
+.search-field-wrapper .v-input__slot {
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+	padding: 0 16px !important;
+}
+
+.search-field-wrapper .v-text-field--solo {
+	border-radius: 8px;
+}
+
+.search-field-wrapper .v-text-field--solo input {
+	font-size: 14px;
+	font-style: italic;
 }
