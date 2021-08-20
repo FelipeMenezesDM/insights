@@ -6,17 +6,19 @@
         <v-col cols="12" class="pa-0">
           <v-card align="center" class="v-card-item handler-insight-card">
             <v-row class="ma-0">
-              <v-col cols="12">
-                <h6>Insight</h6>
+              <v-col cols="12" class="pa-4">
+                <h6 class="field-title">Insight</h6>
                 <v-textarea
                   name="texto"
                   class="rounded-0"
                   placeholder="Escreva aqui o seu insight."
+                  hide-details="true"
                   solo
                 ></v-textarea>
+                <p class="field-legend">Limite de caracteres: 400</p>
               </v-col>
-              <v-col cols="12">
-                <h6>Insight</h6>
+              <v-col cols="12" class="pa-4">
+                <h6 class="field-title">Categoria</h6>
                 <v-combobox
                   v-model="model"
                   :items="items"
@@ -27,7 +29,8 @@
                   hide-no-data
                   hide-selected
                   chips
-                  label="Your favorite hobbies"
+                  placeholder="Adicione uma categoria (opcional)..."
+                  hide-details="true"
                   multiple
                   solo
                 >
@@ -39,7 +42,7 @@
                       @click="select"
                       @click:close="remove(item)"
                     >
-                      <strong>{{ item.name }}</strong>
+                      <strong>{{ !item.name ? item : item.name }}</strong>
                     </v-chip>
                   </template>
                 </v-combobox>

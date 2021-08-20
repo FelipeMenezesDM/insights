@@ -101,3 +101,38 @@
 .header-title .highlight-title {
 	font-weight: 600;
 }
+
+.handler-insight-card .field-title {
+	text-transform: uppercase;
+	text-align: left;
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: normal;
+	font-style: italic;
+	color: #000000;
+}
+
+.handler-insight-card .v-input__slot {
+	box-shadow: none !important;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+	padding: 0 !important;
+}
+
+.handler-insight-card .v-input__slot textarea {
+	font-style: italic;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 20px;
+	color: #000000;
+	height: 226px;
+}
+
+.handler-insight-card .field-legend {
+	text-align: right;
+	font-size: 12px;
+	line-height: 24px;
+	color: rgba(0, 0, 0, 0.4);
+	font-weight: 500;
+	font-style: italic;
+	margin-top: 8px;
+}
