@@ -63,8 +63,8 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-container class="pa-0 search-clear-fix">
-      <v-sheet class="search-field-wrapper" color="transparent">
+    <v-container class="pa-0 float-component-clear-fix">
+      <v-sheet class="float-component-wrapper" color="transparent">
         <v-text-field
           solo
           placeholder="Pesquise por tempos ou categorias"

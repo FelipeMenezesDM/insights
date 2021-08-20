@@ -52,6 +52,14 @@
         </v-col>
       </v-row>
     </v-container>
+    <v-container class="pa-0 float-component-clear-fix">
+      <v-sheet class="float-component-wrapper" color="transparent">
+        <v-btn
+          block
+          x-large
+        >Publicar</v-btn>
+      </v-sheet>
+    </v-container>
   </div>
 </template>
 
