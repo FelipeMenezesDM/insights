@@ -131,7 +131,6 @@ export default {
       this.insight.tags = [...this.insight.tags];
     },
     save() {
-      console.log(this.insight);
       Insight.post(this.insight).then((result) => {
         console.log(result);
         this.$router.push('/');
