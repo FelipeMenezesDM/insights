@@ -51,14 +51,14 @@
     </v-container>
     <v-container>
       <v-row justify="center">
-        <v-col cols="3">
+        <!-- <v-col cols="3">
           <v-progress-linear
             color="grey"
             indeterminate
             rounded
             height="6"
           ></v-progress-linear>
-        </v-col>
+        </v-col> -->
         <v-col cols="12" align="center">
           <v-btn text class="load-more-btn">Toque para exibir mais insights</v-btn>
         </v-col>
