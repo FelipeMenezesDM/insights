@@ -14,7 +14,7 @@
             <v-img src="../assets/logo.png" alt="Felipe Menezes"></v-img>
           </v-avatar>
           <v-sheet width="50" color="transparent" class="text-end">
-            <v-btn small icon>
+            <v-btn small icon @click="addInsight()">
               <v-icon color="#ED4D77">
                 mdi-plus
               </v-icon>
@@ -75,3 +75,13 @@
     </v-container>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    addInsight: function() {
+      this.$router.push('/add-insight');
+    }
+  }
+}
+</script>

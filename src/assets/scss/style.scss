@@ -23,6 +23,10 @@
   background-size: 108% auto;
 }
 
+.mini-header .v-toolbar__image .v-image__image {
+	background-position: center bottom !important;
+}
+
 .feed-label h3 {
 	font-size: 20px;
 	line-height: 20px;
@@ -81,4 +85,19 @@
 .search-field-wrapper .v-text-field--solo input {
 	font-size: 14px;
 	font-style: italic;
+}
+
+.header-title .simple-title,
+.header-title .highlight-title {
+	font-weight: 300;
+	font-size: 20px;
+	color: $pink;
+	line-height: 18px;
+	text-align: center;
+	text-transform: uppercase;
+	font-style: italic;
+}
+
+.header-title .highlight-title {
+	font-weight: 600;
 }
