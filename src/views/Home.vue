@@ -38,7 +38,7 @@
         <v-col cols="12" class="pa-0">
           <v-card align="center" class="v-card-item" v-for="insight of insights" :key="insight.id">
             <v-card-subtitle class="card-text">{{ insight.texto }}</v-card-subtitle>
-            <v-container v-if="insight.tags.length > 0" class="px-4 py-3">
+            <v-container v-if="insight.tags && insight.tags.length > 0" class="px-4 py-3">
               <v-chip
                 label outlined
                 class="v-tag ma-1"
