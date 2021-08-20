@@ -36,13 +36,14 @@
     <v-container style="margin-top: -95px" class="pa-4">
       <v-row class="ma-0">
         <v-col cols="12" class="pa-0">
-          <v-card align="center" class="v-card-item">
-            <v-card-subtitle class="card-text">Flamengo consegue boa vitória fora de casa na estreia da Copa Libertadores 2021.</v-card-subtitle>
-          </v-card>
-          <v-card align="center" class="v-card-item">
-            <v-card-subtitle class="card-text">Flamengo consegue boa vitória fora de casa na estreia da Copa Libertadores 2021.</v-card-subtitle>
-            <v-container class="pa-4">
-              <v-chip label outlined class="v-tag">Categoria</v-chip>
+          <v-card align="center" class="v-card-item" v-for="insight of insights" :key="insight.id">
+            <v-card-subtitle class="card-text">{{ insight.texto }}</v-card-subtitle>
+            <v-container v-if="insight.tags.length > 0" class="px-4 py-3">
+              <v-chip
+                label outlined
+                class="v-tag ma-1"
+                v-for="tag of insight.tags" :key="tag.id"
+              >{{tag.name}}</v-chip>
             </v-container>
           </v-card>
         </v-col>
@@ -77,11 +78,23 @@
 </template>
 
 <script>
+import Insight from '../../services/insight';
+
 export default {
+  data() {
+    return {
+      insights: []
+    }
+  },
   methods: {
     addInsight: function() {
       this.$router.push('/add-insight');
     }
+  },
+  mounted() {
+    Insight.list().then(result => {
+      this.insights = result.data.insight;
+    });
   }
 }
 </script>
