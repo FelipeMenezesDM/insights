@@ -68,7 +68,7 @@
 
 <script>
 import Header from '../components/Header.vue';
-import Insight from '../../services/insight';
+import Insight from '../services/insight';
 import { API_BASE_URL } from '../../environment/init';
 
 export default {

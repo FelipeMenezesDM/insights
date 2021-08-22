@@ -78,7 +78,7 @@
 </template>
 
 <script>
-import Insight from '../../services/insight';
+import Insight from '../services/insight';
 
 export default {
   data() {

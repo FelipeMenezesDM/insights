@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import Insight from '../../services/insight';
+import Insight from '../services/insight';
 import Header from '../components/Header.vue';
 
 export default {
