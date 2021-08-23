@@ -34,5 +34,8 @@ export default {
   },
   delete: (params) => {
     return http.delete('insight/delete', {params: params});
+  },
+  search: (params) => {
+    return http.get('insight/search', {params: params});
   }
 };
