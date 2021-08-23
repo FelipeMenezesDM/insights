@@ -2,7 +2,7 @@
   <div class="add-insight-page">
     <Header />
     <form ref="form">
-      <v-container class="pa-4">
+      <div class="pa-4">
         <v-row class="ma-0">
           <v-col cols="12" class="pa-0">
             <v-card align="center" class="v-card-item handler-insight-card">
@@ -52,8 +52,8 @@
             </v-card>
           </v-col>
         </v-row>
-      </v-container>
-      <v-container class="pa-0 float-component-clear-fix">
+      </div>
+      <div class="pa-0 float-component-clear-fix">
         <v-sheet class="float-component-wrapper" color="transparent">
           <v-btn
             block
@@ -61,7 +61,7 @@
             @click="submit"
           >Publicar</v-btn>
         </v-sheet>
-      </v-container>
+      </div>
     </form>
   </div>
 </template>

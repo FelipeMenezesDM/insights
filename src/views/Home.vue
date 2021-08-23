@@ -1,16 +1,16 @@
 <template>
   <div class="home-page">
     <HomeHeader />
-    <v-container v-if="insights.length > 0" style="margin-top: -95px" class="pa-4">
+    <div v-if="insights.length > 0" style="margin-top: -95px" class="pa-4">
       <v-row class="ma-0">
         <v-col cols="12" class="pa-0">
           <Card v-for="insight of insights" :key="insight.id" :insight="insight" />
         </v-col>
       </v-row>
-    </v-container>
+    </div>
     <h5 v-if="insights.length < 1 && !isLoading" class="text-center pt-2">Não há insights cadastrados</h5>
     <ShowMore ref="showMore" />
-    <v-container class="pa-0 float-component-clear-fix">
+    <div class="pa-0 float-component-clear-fix">
       <v-sheet class="float-component-wrapper" color="transparent">
         <v-text-field
           solo
@@ -20,7 +20,7 @@
           @click="openSearch()"
         ></v-text-field>
       </v-sheet>
-    </v-container>
+    </div>
   </div>
 </template>
 
