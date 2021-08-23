@@ -21,7 +21,7 @@
         <v-btn icon @click="editInsight(insight.id)">
           <v-icon>mdi-pencil</v-icon>
         </v-btn>
-        <v-btn icon @click.stop="confirm.show()">
+        <v-btn icon @click.stop="$refs.confirm.show()">
           <v-icon>mdi-delete</v-icon>
         </v-btn>
       </v-card-actions>
@@ -34,14 +34,6 @@ import Insight from '../services/insight';
 import Confirmation from '../components/Confirmation.vue';
 
 export default {
-  data() {
-    return {
-      confirm: null
-    }
-  },
-  mounted() {
-    this.confirm = this.$refs.confirm;
-  },
   props: ['insight', 'showActions'],
   name: 'Card',
   components: {

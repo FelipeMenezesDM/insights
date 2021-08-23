@@ -10,19 +10,20 @@
       mdi-arrow-left
       </v-icon>
     </v-btn>
-    <v-spacer></v-spacer>
-    <v-container class="header-title">
-      <h3 class="simple-title">{{ $route.meta.title }}</h3>
-      <h3 class="highlight-title">{{ $route.meta.highlightTitle }}</h3>
-    </v-container>
-    <v-spacer></v-spacer>
-    <v-sheet color="transparent" width="48" height="48"></v-sheet>
+    <v-text-field
+      placeholder="Pesquise por termos ou categorias"
+      class="mt-2 pt-2"
+      height="40"
+      autofocus
+      v-model="search.value"
+    ></v-text-field>
   </v-toolbar>
 </template>
 
 <script>
 export default {
-  name: 'Header',
+  name: 'SearchHeader',
+  props: ['search'],
   methods: {
     back: function() {
       this.$router.go(-1);

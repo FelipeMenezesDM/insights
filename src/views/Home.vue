@@ -8,29 +8,15 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-container>
-      <v-row justify="center">
-        <v-col cols="3" class="pa-0">
-          <v-progress-linear
-            :active="isLoading"
-            color="grey"
-            indeterminate
-            rounded
-            height="6"
-          ></v-progress-linear>
-        </v-col>
-        <v-col cols="12" align="center">
-          <v-btn text class="load-more-btn">Toque para exibir mais insights</v-btn>
-        </v-col>
-      </v-row>
-    </v-container>
+    <ShowMore ref="showMore" />
     <v-container class="pa-0 float-component-clear-fix">
       <v-sheet class="float-component-wrapper" color="transparent">
         <v-text-field
           solo
-          placeholder="Pesquise por tempos ou categorias"
+          placeholder="Pesquise por termos ou categorias"
           height="56"
           append-icon="mdi-magnify"
+          @click="openSearch()"
         ></v-text-field>
       </v-sheet>
     </v-container>
@@ -40,23 +26,38 @@
 <script>
 import HomeHeader from '../components/HomeHeader.vue';
 import Card from '../components/Card.vue';
+import ShowMore from '../components/ShowMore.vue';
 import Insight from '../services/insight';
 
 export default {
   data() {
     return {
       isLoading: false,
-      insights: []
+      insights: [],
+      showMore: null
     }
   },
   components: {
     Card,
-    HomeHeader
+    HomeHeader,
+    ShowMore
   },
   mounted() {
+    this.showMore = this.$refs.showMore;
+
+    this.showMore.showLoader();
+    this.showMore.hideLoadButton();
+
     Insight.list().then(result => {
+      this.showMore.hideLoader();
+      this.showMore.showLoadButton();
       this.insights = result.data.insight;
     });
+  },
+  methods: {
+    openSearch: function() {
+      this.$router.push({name: 'Search'});
+    }
   }
 }
 </script>

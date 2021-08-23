@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import AddInsight from '../views/AddInsight.vue';
 import ViewInsight from '../views/ViewInsight';
 import ViewTag from '../views/ViewTag';
+import Search from '../views/Search';
 
 Vue.use(VueRouter)
 
@@ -36,6 +37,11 @@ const routes = [
     name: 'ViewTag',
     component: ViewTag,
     meta: {title: 'Categoria'}
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: Search
   }
 ]
 
