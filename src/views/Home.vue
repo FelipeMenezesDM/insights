@@ -22,8 +22,8 @@
           </v-sheet>
         </v-row>
         <v-row align="center" class="d-flex flex-column mt-3 home-page-title ma-0">
-          <h3 class="font-italic font-weight-light">Olá, Felipe!</h3>
-          <h5 class="font-italic">felipe.menezes@g.globo.com</h5>
+          <h3 class="font-italic font-weight-light">Olá, Usuário!</h3>
+          <h5 class="font-italic">usuario@example.com</h5>
         </v-row>
         <v-row align="center" class="d-flex flex-column py-4 sep-bar ma-0">
           <v-sheet color="#ED4D77" width="24" height="2"></v-sheet>
@@ -36,29 +36,21 @@
     <v-container style="margin-top: -95px" class="pa-4">
       <v-row class="ma-0">
         <v-col cols="12" class="pa-0">
-          <v-card align="center" class="v-card-item" v-for="insight of insights" :key="insight.id">
-            <v-card-subtitle class="card-text" @click="viewInsight(insight.id)">{{ insight.texto }}</v-card-subtitle>
-            <v-container v-if="insight.tags && insight.tags.length > 0" class="px-4 py-3">
-              <v-chip
-                label outlined
-                class="v-tag ma-1"
-                v-for="tag of insight.tags" :key="tag.id"
-              >{{tag.name}}</v-chip>
-            </v-container>
-          </v-card>
+          <Card v-for="insight of insights" :key="insight.id" :insight="insight" />
         </v-col>
       </v-row>
     </v-container>
     <v-container>
       <v-row justify="center">
-        <!-- <v-col cols="3">
+        <v-col cols="3" class="pa-0">
           <v-progress-linear
+            :active="isLoading"
             color="grey"
             indeterminate
             rounded
             height="6"
           ></v-progress-linear>
-        </v-col> -->
+        </v-col>
         <v-col cols="12" align="center">
           <v-btn text class="load-more-btn">Toque para exibir mais insights</v-btn>
         </v-col>
@@ -78,20 +70,22 @@
 </template>
 
 <script>
+import Card from '../components/Card.vue';
 import Insight from '../services/insight';
 
 export default {
   data() {
     return {
+      isLoading: false,
       insights: []
     }
+  },
+  components: {
+    Card
   },
   methods: {
     addInsight: function() {
       this.$router.push('/add-insight');
-    },
-    viewInsight: function(insightId) {
-      this.$router.push({name: 'ViewInsight', params: {id: insightId}});
     }
   },
   mounted() {
