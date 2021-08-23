@@ -1,25 +1,21 @@
 import { http } from "./config";
 
-const handlerTags = (insight) => {
+const handlerTags = async (insight) => {
   if(!insight.tags || !insight.tags.length) {
-    insight.tags = null;
+    insight.tags = [];
     return;
   }
-
-  insight.tags.map(tag => {
-    if(!tag.name && typeof tag != 'object') {
-      return {
-        name: tag
-      }
+  
+  for(const tag in insight.tags) {
+    if(!insight.tags[tag].name && typeof insight.tags[tag] != 'object') {
+      insight.tags[tag] = {name: insight.tags[tag]};
     }
-
-    return tag;
-  });
+  }
 };
 
 export default {
-  list: () => {
-    return http.get('insight/list');
+  list: (params) => {
+    return http.get('insight/list', {params: params});
   },
   post: (insight) => {
     handlerTags(insight);

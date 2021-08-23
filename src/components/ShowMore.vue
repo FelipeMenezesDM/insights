@@ -1,9 +1,8 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-col cols="3" class="pa-0">
+      <v-col cols="3" v-if="isLoading" class="pa-0 pt-2">
         <v-progress-linear
-          :active="isLoading"
           color="grey"
           indeterminate
           rounded
@@ -11,7 +10,7 @@
         ></v-progress-linear>
       </v-col>
       <v-col cols="12" align="center" v-if="hasMore">
-        <v-btn text class="load-more-btn">Toque para exibir mais insights</v-btn>
+        <v-btn text class="load-more-btn" @click="page++">Toque para exibir mais insights</v-btn>
       </v-col>
     </v-row>
   </v-container>
@@ -22,7 +21,8 @@ export default {
   name: 'ShowMore',
   data: () => ({
     isLoading: false,
-    hasMore: false
+    hasMore: false,
+    page: 0
   }),
   methods: {
     showLoader: function() {

@@ -1,13 +1,14 @@
 <template>
   <div class="home-page">
     <HomeHeader />
-    <v-container style="margin-top: -95px" class="pa-4">
+    <v-container v-if="insights.length > 0" style="margin-top: -95px" class="pa-4">
       <v-row class="ma-0">
         <v-col cols="12" class="pa-0">
           <Card v-for="insight of insights" :key="insight.id" :insight="insight" />
         </v-col>
       </v-row>
     </v-container>
+    <h5 v-if="insights.length < 1 && !isLoading" class="text-center pt-2">Não há insights cadastrados</h5>
     <ShowMore ref="showMore" />
     <v-container class="pa-0 float-component-clear-fix">
       <v-sheet class="float-component-wrapper" color="transparent">
@@ -32,9 +33,10 @@ import Insight from '../services/insight';
 export default {
   data() {
     return {
-      isLoading: false,
+      isLoading: true,
       insights: [],
-      showMore: null
+      showMore: null,
+      page: 0
     }
   },
   components: {
@@ -45,16 +47,27 @@ export default {
   mounted() {
     this.showMore = this.$refs.showMore;
 
-    this.showMore.showLoader();
-    this.showMore.hideLoadButton();
-
-    Insight.list().then(result => {
-      this.showMore.hideLoader();
-      this.showMore.showLoadButton();
-      this.insights = result.data.insight;
+    this.loadInsights();
+    this.$watch( "$refs.showMore.page", (newVal) => {
+      this.page = newVal;
+      this.loadInsights();
     });
   },
   methods: {
+    loadInsights: function() {
+      this.showMore.showLoader();
+      this.showMore.hideLoadButton();
+
+      Insight.list({page: this.page}).then(result => {
+        this.isLoading = false;
+        this.insights.push(...result.data.insight);
+        this.showMore.hideLoader();
+
+        if(this.insights.length > 0) {
+          this.showMore.showLoadButton();
+        }
+      });
+    },
     openSearch: function() {
       this.$router.push({name: 'Search'});
     }
