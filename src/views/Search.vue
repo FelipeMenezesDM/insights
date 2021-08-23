@@ -25,7 +25,8 @@ export default {
     },
     results: [],
     source: null,
-    showMore: null
+    showMore: null,
+    page: 0
   }),
   components: {
     SearchHeader,
@@ -34,6 +35,11 @@ export default {
   },
   mounted() {
     this.showMore = this.$refs.showMore;
+
+    this.$watch( "$refs.showMore.page", (newVal) => {
+      this.page = newVal;
+      this.loadInsights(this.search.value, false);
+    });
   },
   watch: {
     'search.value': {
@@ -55,15 +61,25 @@ export default {
 
       this.source = axios.CancelToken.source();
 
+      this.page = 0;
+      this.showMore.resetPage();
+      this.loadInsights(searchValue, true);
+    },
+    loadInsights: function(searchValue, isSearch) {
       this.showMore.showLoader();
       this.showMore.hideLoadButton();
 
-      Insight.search({s: searchValue}, this.source).then(result => {
-        this.results = result.data.insight;
+      Insight.search({s: searchValue, page: this.page}, this.source).then(result => {
+        if(isSearch) {
+          this.results = result.data.insight;
+        }else{
+          this.results.push(...result.data.insight);
+        }
+
         this.source = null;
         this.showMore.hideLoader();
         
-        if(this.results.length > 0) {
+        if(result.data.insight.length > 0) {
           this.showMore.showLoadButton();
         }
       });

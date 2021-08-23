@@ -36,6 +36,9 @@ export default {
     },
     hideLoadButton: function() {
       this.hasMore = false;
+    },
+    resetPage: function() {
+      this.page = 0;
     }
   }
 }

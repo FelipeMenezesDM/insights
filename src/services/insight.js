@@ -32,6 +32,12 @@ export default {
     return http.delete('insight/delete', {params: params});
   },
   search: (params, source) => {
-    return http.get('insight/search', {params: params, cancelToken: source.token});
+    const parameters = {params: params};
+
+    if(source) {
+      parameters.cancelToken = source.token;
+    }
+
+    return http.get('insight/search', parameters);
   }
 };

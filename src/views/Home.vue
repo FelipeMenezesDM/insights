@@ -63,7 +63,7 @@ export default {
         this.insights.push(...result.data.insight);
         this.showMore.hideLoader();
 
-        if(this.insights.length > 0) {
+        if(result.data.insight.length > 0) {
           this.showMore.showLoadButton();
         }
       });
