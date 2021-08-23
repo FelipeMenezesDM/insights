@@ -23,11 +23,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-      isVisible: false
-    }
-  },
+  data: () => ({
+    sVisible: false
+  }),
   name: 'Confirmation',
   props: ['title', 'object', 'onConfirm', 'onDecline'],
   methods: {

@@ -31,14 +31,12 @@ import ShowMore from '../components/ShowMore.vue';
 import Insight from '../services/insight';
 
 export default {
-  data() {
-    return {
-      isLoading: true,
-      insights: [],
-      showMore: null,
-      page: 0
-    }
-  },
+  data: () => ({
+    isLoading: true,
+    insights: [],
+    showMore: null,
+    page: 0
+  }),
   components: {
     Card,
     HomeHeader,

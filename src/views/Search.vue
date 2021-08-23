@@ -46,6 +46,7 @@ export default {
       handler: function(newValue) {
         if(!newValue) {
           this.results = [];
+          this.showMore.hideLoadButton();
         }else{
           this.searchInsights(newValue);
         }

@@ -72,18 +72,16 @@ import Insight from '../services/insight';
 import Tag from '../services/tag';
 
 export default {
-  data () {
-    return {
-      descriptionLimit: 25,
-      entries: [],
-      isLoading: false,
-      insight: {
-        tags: null,
-        texto: null
-      },
-      search: null
-    }
-  },
+  data: () => ({
+    descriptionLimit: 25,
+    entries: [],
+    isLoading: false,
+    insight: {
+      tags: null,
+      texto: null
+    },
+    search: null
+  }),
   computed: {
     fields () {
       if (!this.insight.tags) {
