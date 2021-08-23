@@ -69,7 +69,7 @@
 <script>
 import Header from '../components/Header.vue';
 import Insight from '../services/insight';
-import { API_BASE_URL } from '../../environment/init';
+import Tag from '../services/tag';
 
 export default {
   data () {
@@ -125,12 +125,14 @@ export default {
 
       this.isLoading = true;
 
-      fetch(API_BASE_URL+'tag/search?s='+valSearch)
-      .then(res => res.json())
+      Tag.searchTags(valSearch)
+      .then(res => res.data)
       .then(res => {
         this.entries = res.tag;
       })
-      .finally(() => (this.isLoading = false));
+      .finally(() => {
+        this.isLoading = false
+      });
     }
   },
   methods: {
