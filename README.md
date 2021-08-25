@@ -1,24 +1,23 @@
-# insights
+# Insights
+Aplicação simples para gerenciamento de insights com conteúdo informativo sobre esportes.
 
-## Project setup
-```
-npm install
-```
+## Pré-requisitos
+Para usar este projeto, é necessário ter instalado em sua máquina:
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- NodeJS
+- MongoDB
+- API de consumo: [Insights (Backend)](https://github.com/FelipeMenezesDM/insights-backend.git)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Instalação
+1. Após ter instalado a API do Insights, faça o clone deste projeto executando o comando abaixo no diretório de aplicações do seu servidor:
+  ```bash
+  git clone https://github.com/FelipeMenezesDM/insights.git
+  ```
+1. Acesse a raíz do projeto e entre na pasta "environments".
+1. Copie o arquivo `init.example.js`, alterando o nome da cópia para `init.js`.
+1. Neste arquivo, faça os devidos ajustes na URL da API para consumo.
+1. Execute o `npm install` ou `npm build`.
 
-### Lints and fixes files
-```
-npm run lint
-```
+Após isso, a aplicação estará disponível na portal 8080 do seu servidor.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Você pode também acessar o repositório do docker configurado para a instalação automatizada e completa da aplicação: [Insights Docker](https://github.com/FelipeMenezesDM/insights-docker.git).
