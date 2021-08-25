@@ -13,10 +13,9 @@ Para usar este projeto, é necessário ter instalado em sua máquina:
   ```bash
   git clone https://github.com/FelipeMenezesDM/insights.git
   ```
-1. Acesse a raíz do projeto e entre na pasta "environments".
-1. Copie o arquivo `init.example.js`, alterando o nome da cópia para `init.js`.
+1. Acesse a raíz do projeto e copie o arquivo `.env.development`, alterando o nome da cópia para `.env` e deixando também na raíz do projeto.
 1. Neste arquivo, faça os devidos ajustes na URL da API para consumo.
-1. Execute o `npm install` ou `npm build`.
+1. Execute o `npm install` e o `npm run serve`, ou `npm build`.
 
 Após isso, a aplicação estará disponível na portal 8080 do seu servidor.
 
