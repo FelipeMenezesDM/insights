@@ -124,13 +124,13 @@ export default {
       this.isLoading = true;
 
       Tag.searchTags(valSearch)
-      .then(res => res.data)
-      .then(res => {
-        this.entries = res.tag;
-      })
-      .finally(() => {
-        this.isLoading = false
-      });
+        .then(res => res.data)
+        .then(res => {
+          this.entries = res.tag;
+        })
+        .finally(() => {
+          this.isLoading = false
+        });
     }
   },
   methods: {

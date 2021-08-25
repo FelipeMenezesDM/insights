@@ -1,6 +1,5 @@
 import axios from 'axios';
-import { API_BASE_URL } from '../../environment/init';
 
 export const http = axios.create({
-  baseURL: API_BASE_URL
+  baseURL: process.env.VUE_APP_API_BASE_URL
 });
