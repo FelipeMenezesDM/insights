@@ -1,8 +1,10 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import AddInsight from '../views/AddInsight.vue'
-import ViewInsight from '../views/ViewInsight'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '../views/Home.vue';
+import AddInsight from '../views/AddInsight.vue';
+import ViewInsight from '../views/ViewInsight';
+import ViewTag from '../views/ViewTag';
+import Search from '../views/Search';
 
 Vue.use(VueRouter)
 
@@ -25,10 +27,21 @@ const routes = [
     meta: {title: 'Editar', highlightTitle: 'Insight'}
   },
   {
-    path: '/view-insight/:id',
+    path: '/insight/:id',
     name: 'ViewInsight',
     component: ViewInsight,
     meta: {title: 'Visualizar', highlightTitle: 'Insight'}
+  },
+  {
+    path: '/tag/:s',
+    name: 'ViewTag',
+    component: ViewTag,
+    meta: {title: 'Categoria'}
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: Search
   }
 ]
 
