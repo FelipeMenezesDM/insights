@@ -19,4 +19,4 @@ Para usar este projeto, é necessário ter instalado em sua máquina:
 
 Após isso, a aplicação estará disponível na portal 8080 do seu servidor.
 
-Você pode também acessar o repositório do docker configurado para a instalação automatizada e completa da aplicação: [Insights Docker](https://github.com/FelipeMenezesDM/insights-docker.git).
+Você pode também acessar o repositório do docker configurado para a instalação automatizada e completa da aplicação: [Insights Docker](https://github.com/FelipeMenezesDM/insights-docker).
