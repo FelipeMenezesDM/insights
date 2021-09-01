@@ -107,7 +107,9 @@ export default {
   },
   mounted() {
     if(this.$route.params.id) {
+      console.log("teste");
       Insight.getInfo(this.$route.params).then(result => {
+        this.insight.id = result.data.insight.id;
         this.insight.tags = result.data.insight.tags;
         this.insight.texto = result.data.insight.texto;
       });
